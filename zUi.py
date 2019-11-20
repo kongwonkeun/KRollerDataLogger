@@ -11,8 +11,8 @@ from PySide2.QtCore import QTimer
 from PySide2.QtWidgets import QMainWindow
 from PySide2.QtWidgets import QWidget
 
-import gui
-import bt
+import zGui
+import zBt
 
 #================================
 #
@@ -27,7 +27,7 @@ class UiWindow(QMainWindow):
         self.gui.setupUi(self.widget)
 
         self.setCentralWidget(self.widget)
-        self.setWindowTitle('main window')
+        self.setWindowTitle("main window")
 
         self.bt = bt
         self.bt.connect_rx(self.rxHandler)
@@ -43,7 +43,7 @@ class UiWindow(QMainWindow):
         return
 
     def rxHandler(self, rotation, dir):
-        print('---- someone calls rxHandler ----')
+        print("---- someone calls rxHandler ----")
         return
 
     def stop(self):
