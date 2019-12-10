@@ -127,6 +127,7 @@ class Bt(object):
         self.min = 40
         self.width = 0
         self.distance_sum = 0
+        self.distance_sum_meter = 0;
         self.sec_sum = 0
         return
 
@@ -151,8 +152,9 @@ class Bt(object):
         self.min = min(self.min, self.thread.dir)
         self.width = self.max - self.min
         self.distance_sum += self.thread.speed
+        self.distance_sum_meter = self.distance_sum / 100
         self.sec_sum += 1
-        self.excel.write_summery((self.max, self.min, self.width, self.distance_sum, self.sec_sum))
+        self.excel.write_summery((self.max, self.min, self.width, self.distance_sum_meter, self.sec_sum))
         return
 
     #============================

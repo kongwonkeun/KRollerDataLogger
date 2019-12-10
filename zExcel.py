@@ -21,7 +21,7 @@ EXCEL_SHEET = "log"
 class Excel(object):
 
     def __init__(self):
-        self.line = 3
+        self.line = 4
         self.start = 'A'
         self.end = 'F'
         return
@@ -50,6 +50,8 @@ class Excel(object):
         return
 
     def write(self, record):
+        range = 'A3:F3'
+        self.excelApp.Range(range).Value = record
         range = self.start + str(self.line) + ':' + self.end + str(self.line)
         self.excelApp.Range(range).Value = record
         self.line += 1
